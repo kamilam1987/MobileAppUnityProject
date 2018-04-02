@@ -25,7 +25,7 @@ public class CarMovement : MonoBehaviour {
     private void Update()
     {
         carPosition.x += Input.GetAxis("Horizontal") * carHorizontalSpeed * Time.deltaTime;//Moving left side on left key press and moving right on the right key press
-        carPosition.x = Mathf.Clamp(carPosition.x, -5.69f, 5.69f);//Clamp takes the car position and min an max value on the road)Makes sure that the car is on the road, doesn't go beyond the sides of the road
+        carPosition.x = Mathf.Clamp(carPosition.x, -5.05f, 5.05f);//Clamp takes the car position and min an max value on the road)Makes sure that the car is on the road, doesn't go beyond the sides of the road
         this.gameObject.transform.position = carPosition; 
     }//End of Update method
 

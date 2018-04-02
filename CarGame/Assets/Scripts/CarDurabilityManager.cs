@@ -9,7 +9,7 @@ public class CarDurabilityManager : MonoBehaviour {
     //Declare variables
     public GameObject playerCarPrefab;//Object of a playerCarPrefab
     public GameObject spawnPoint;//Pleace when spawn the object once is destroyed
-    public TextMesh durabilityText;
+    public TMPro.TextMeshPro durabilityText;
     public int lifes;//The amount of lifes that a car has
     private GameObject playerCar;//Private objec of a car
 
@@ -38,7 +38,7 @@ public class CarDurabilityManager : MonoBehaviour {
         }//End of else if
 
         //Set text to be actual
-        durabilityText.text = "Durability" + playerCar.GetComponent<CarMovement>().durability + "/" + playerCar.GetComponent<CarMovement>().maxDurability;
+        durabilityText.text = "Durability : " + playerCar.GetComponent<CarMovement>().durability + "/" + playerCar.GetComponent<CarMovement>().maxDurability;
     }//End of Update method
 
     IEnumerator SpawnaCar()
