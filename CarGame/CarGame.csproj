@@ -325,6 +325,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BanditCarBehaviour.cs" />
     <Compile Include="Assets\Scripts\Bonuses.cs" />
     <Compile Include="Assets\Scripts\BonusSpawner.cs" />
     <Compile Include="Assets\Scripts\CarDurabilityManager.cs" />
