@@ -17,6 +17,7 @@ public class CarMovement : MonoBehaviour {
         carPosition = this.gameObject.transform.position;//Asign to the car position the actual position of the obcject
     }//End of Start method
 
+    // Update is called once per frame
     private void Update()
     {
         carPosition.x += Input.GetAxis("Horizontal") * carHorizontalSpeed * Time.deltaTime;//Moving left side on left key press and moving right on the right key press
