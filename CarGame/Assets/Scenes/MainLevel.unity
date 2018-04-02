@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 1633189510}
   - component: {fileID: 1633189509}
   - component: {fileID: 1633189511}
+  - component: {fileID: 1633189512}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -442,6 +443,23 @@ MonoBehaviour:
   spawnPoint: {fileID: 59534949}
   durabilityText: {fileID: 1763333151}
   lifes: 3
+--- !u!114 &1633189512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633189508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c4b6c20e267ca42b2b711118a7c11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonuses:
+  - {fileID: 1253263416193588, guid: c177dc44a0b535f45a080c8f54f936eb, type: 2}
+  - {fileID: 1221623092113492, guid: e0466446542d528499900ff12e8f5d54, type: 2}
+  - {fileID: 1819814347005638, guid: 5442933614cc7bf46bbb7b0ac531f3b5, type: 2}
+  minDelay: 3
+  maxDelay: 5
 --- !u!1 &1763333149
 GameObject:
   m_ObjectHideFlags: 0

@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3b2b0a450de144d8dd85c54eac3996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carHorizontalSpeed: 4
+  carHorizontalSpeed: 7
   maxDurability: 100
   durability: 0
 --- !u!212 &212667879317906296

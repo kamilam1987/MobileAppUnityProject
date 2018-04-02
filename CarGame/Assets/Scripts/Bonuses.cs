@@ -38,7 +38,7 @@ public class Bonuses : MonoBehaviour {
     //Once player hit the bonus it will collect it
     private void OnTriggerEnter2D(Collider2D obj)
     {
-        if (obj.gameObject.tag == "Player")
+        if (obj.gameObject.tag == "Player" || obj.gameObject.tag == "Shield")//If shield can add other bonuses
         {
             //Checks what type of bonus
             if (isDurability == true)//IF bonus is durability
