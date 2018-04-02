@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Author: Kamila Michel
-//Source code based on: https://www.youtube.com/watch?v=DucHKKy7-38
+//Source code based on: https://www.youtube.com/watch?v=DucHKKy7-38, https://docs.unity3d.com/ScriptReference/
 
 public class CarMovement : MonoBehaviour {
 
     //Declares Variables
     public float carHorizontalSpeed = 2f;//Speed of car, moving only on the sides
     private Vector3 carPosition;//Position od the car in game
+    public float maxDurability = 100;//Maximum Durability af a player car
+    //[HideInInspector]//Makes a variable not show up in the inspector but be serialized
+    public float durability;//Current durability
 
     //Once the game starts
     private void Start()
     {
         carPosition = this.gameObject.transform.position;//Asign to the car position the actual position of the obcject
+        durability = maxDurability;//Assigned max durability value to the current durability
     }//End of Start method
 
     // Update is called once per frame
