@@ -9,6 +9,8 @@ public class Bomb : MonoBehaviour {
     //Declare variables
     public int bombDamage;//Value of damage that the bomb makes
     public float bombSpeed;//Value of a bomb speed
+    [HideInInspector]
+    public int pointsPerBomb;//Amount points for bomb
 
     void Update()
     {
@@ -20,6 +22,7 @@ public class Bomb : MonoBehaviour {
     {
         if(obj.gameObject.tag == "Player")//If tag of that object is player
         {
+            PointsManager.points -= pointsPerBomb;//Substract points when player crashes with a bombs
             obj.gameObject.GetComponent<CarMovement>().durability -= bombDamage;//From car durability substract damage made from bomb
             Destroy(this.gameObject);//Destroy bomb
         }//End of if 
@@ -29,6 +32,7 @@ public class Bomb : MonoBehaviour {
         }//End of else if
         else if(obj.gameObject.tag == "EndOfTheRoad")//If tag is EndOfTheRoad
         {
+            PointsManager.points += pointsPerBomb;//Adding points when player passes bombs
             Destroy(this.gameObject);//Destroy bomb
         }//End of else if
     }//End of OnTriggerEnter2D method

@@ -333,6 +333,7 @@
     <Compile Include="Assets\Scripts\CarDurabilityManager.cs" />
     <Compile Include="Assets\Scripts\CarMovement.cs" />
     <Compile Include="Assets\Scripts\CivilCarBehaviour.cs" />
+    <Compile Include="Assets\Scripts\PointsManager.cs" />
     <Compile Include="Assets\Scripts\PoliceCarBehaviour.cs" />
     <Compile Include="Assets\Scripts\RoadInfiniteScrolling.cs" />
     <Compile Include="Assets\Scripts\Shield.cs" />

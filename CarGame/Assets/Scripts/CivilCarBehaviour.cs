@@ -12,6 +12,8 @@ public class CivilCarBehaviour : MonoBehaviour {
     public int direction = -1;//Diretion of a car on the road
     public float crashDamage = 20f;//Value of a crash damage
 
+    [HideInInspector]
+    public int pointsPerCar; 
     private Vector3 civilCarPosition;//Position of the civil car
 
     //Update is called once per frame
@@ -31,15 +33,16 @@ public class CivilCarBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
-
         if(obj.gameObject.tag == "Player")//Checks if PlayerCar tag is Player
         {
+            PointsManager.points -= pointsPerCar;//Substract points if player crashed with civil car 
             obj.gameObject.GetComponent<CarMovement>().durability -= crashDamage;//Substract from durability a cras damage
             Debug.Log("Collision with player");//Prints comments
             Destroy(this.gameObject);
         }//End of if
         else if (obj.gameObject.tag == "EndOfTheRoad")//If game object has a tag called "EndOfTheRoad"
         {
+            PointsManager.points += pointsPerCar;//Adding points per car to a main points in points manager
             Destroy(this.gameObject);//Destroy game object
         }//End of else if 
     }//End of OnTriggerEnter2D method

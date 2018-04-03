@@ -18,7 +18,8 @@ public class PoliceCarBehaviour : MonoBehaviour {
     public bool isLeft=false;//Side of a police car on the road
     public float policeCarVerticalSpeed;//Speed of a police car
     public int bulletsInSeries;//Amount of bullets in one serie
-
+    [HideInInspector]
+    public int pointsPerCar;//Amount of point for a car
     private Vector3 policeCarPos;//Police car position
     private float shootDelay;//Time for shooting
     private GameObject bulletObj;//Bullet object
@@ -94,6 +95,7 @@ public class PoliceCarBehaviour : MonoBehaviour {
             {
                 WaveManager.isRight = false;//Car on the right side of the road will explode
             }
+            PointsManager.points += pointsPerCar;//Adding poits for police car
             Destroy(this.gameObject);//Destroy object
         }//End of if
 

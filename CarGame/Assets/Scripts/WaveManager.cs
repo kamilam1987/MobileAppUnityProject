@@ -35,6 +35,11 @@ public class WaveManager : MonoBehaviour {
     public int bulletsInSeries;//Amount of bullets in one serie 
     private GameObject spawnedPoliceCar;//Object for spawned police car
 
+    [Header("Points")]
+    public int pointsPerCivilCar;//Amount of points that player gets for civil car
+    public int pointsPerBamditCar;//Amount of points that player gets for bandits car
+    public int pointsPerBomb;//Amount of points that player gets for skipping a bomb
+    public int pointsPerPoliceCar;//Amount of points that player gets for damage police car
     private float[] laneArray;//Lanes on the road
     private float spawnDelay;//Spawn delay
 
@@ -95,6 +100,7 @@ public class WaveManager : MonoBehaviour {
         spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().singleShotDelay = singleShotDelay;
         spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().bulletsInSeries = bulletsInSeries;
         spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().policeCarVerticalSpeed = policeCarVerticalSpeed;
+        spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().pointsPerCar = pointsPerPoliceCar;
     }//End of spawnedPoliceCar method
 
     void spawnBanditCar()
@@ -121,6 +127,9 @@ public class WaveManager : MonoBehaviour {
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().banditCarVarticalSpeed = banditCarVarticalSpeed;
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().banditCarHorizontalSpeed = banditCarHorizontalSpeed;
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombDelay = bombDelay;
+        spawnedBanditCar.GetComponent<BanditCarBehaviour>().pointsPerCar = pointsPerPoliceCar;
+        spawnedBanditCar.GetComponent<BanditCarBehaviour>().bomb.GetComponent<Bomb>().pointsPerBomb = pointsPerBomb;
+        
     }//End of spawnBanditCar method
 
     void spawnCar()
@@ -131,9 +140,13 @@ public class WaveManager : MonoBehaviour {
             GameObject car = (GameObject)Instantiate(civilCar, new Vector3(laneArray[lane], 6.24f, 0), Quaternion.Euler(new Vector3(0, 0, 180)));//Creates a new object, position and rotation by 180 degrees
             car.GetComponent<CivilCarBehaviour>().direction = 1;//Car will moves in different direction
             car.GetComponent<CivilCarBehaviour>().civilCarSpeed = 12f;//Chanfes the speed of a car that is moving in different direction
+            car.GetComponent<CivilCarBehaviour>().pointsPerCar = pointsPerCivilCar;//Assigne points for civil car
+
         }
-        if(lane == 2 || lane == 3) { 
-            Instantiate(civilCar, new Vector3(laneArray[lane], 6.24f, 0), Quaternion.identity);//Creates a new object, position and rotation
+        if(lane == 2 || lane == 3) {
+            GameObject car = (GameObject)Instantiate(civilCar, new Vector3(laneArray[lane], 6.24f, 0), Quaternion.identity);//Creates a new object, position and rotation
+            car.GetComponent<CivilCarBehaviour>().pointsPerCar = pointsPerCivilCar;//Assigne points for civil car
+
         }//End of if
         civilCarAmount--; //Substract one car each time is spawn
     }//End of spawnCar method

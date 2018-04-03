@@ -12,6 +12,8 @@ public class BanditCarBehaviour : MonoBehaviour {
     public int banditCarVarticalSpeed;
     public int banditCarHorizontalSpeed;
     public float bombDelay;//Bombs delay
+    [HideInInspector]
+    public int pointsPerCar;//Amount of points for car
 
     private float Delay;//Deley amount
     private GameObject playerCar;//Object car player
@@ -37,7 +39,9 @@ public class BanditCarBehaviour : MonoBehaviour {
             }//End of if
             else if (bombAmount <= 0) {//No more bombs
                 this.gameObject.transform.Translate(new Vector3(0, 1, 0) * banditCarVarticalSpeed * Time.deltaTime);//Bandits car disappear 
-                if (gameObject.transform.position.y > 8.26f) {//If on the position
+                if (gameObject.transform.position.y > 8.26f)//If on the position
+                {
+                    PointsManager.points += pointsPerCar;//Adding points once surviving bandits car
                     Destroy(this.gameObject);
                 }//End of if
             }//End of else if
