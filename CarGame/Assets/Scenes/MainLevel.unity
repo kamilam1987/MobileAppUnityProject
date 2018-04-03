@@ -488,9 +488,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1633189510}
-  - component: {fileID: 1633189509}
   - component: {fileID: 1633189511}
   - component: {fileID: 1633189512}
+  - component: {fileID: 1633189513}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -498,19 +498,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1633189509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1633189508}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 806e550dad4c5504eae9518ac53f2b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carSpawnDeley: 2
-  civilCar: {fileID: 1063594586883522, guid: 371c5c10fe6c13c4f8504dc86b44817e, type: 2}
 --- !u!4 &1633189510
 Transform:
   m_ObjectHideFlags: 0
@@ -562,6 +549,31 @@ MonoBehaviour:
   - {fileID: 1819814347005638, guid: 5442933614cc7bf46bbb7b0ac531f3b5, type: 2}
   minDelay: 3
   maxDelay: 5
+--- !u!114 &1633189513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633189508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806e550dad4c5504eae9518ac53f2b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  civilCarSpawnDeley: 1
+  civilCar: {fileID: 1063594586883522, guid: 371c5c10fe6c13c4f8504dc86b44817e, type: 2}
+  civilCarAmount: 5
+  banditCar: {fileID: 1479203891064396, guid: 29930cc9464358441bfab8d365083e53, type: 2}
+  bombAmount: 7
+  banditCarVarticalSpeed: 5
+  banditCarHorizontalSpeed: 2
+  bombDelay: 1
+  policeCar: {fileID: 1437849723388498, guid: 3a2d58b4cb31b714aa8e14d5e972d035, type: 2}
+  policeCarAmount: 4
+  shootingSeriesDelay: 1.15
+  singleShotDelay: 0.25
+  policeCarVerticalSpeed: 5
+  bulletsInSeries: 3
 --- !u!1 &1763333149
 GameObject:
   m_ObjectHideFlags: 0

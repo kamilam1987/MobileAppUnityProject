@@ -86,6 +86,14 @@ public class PoliceCarBehaviour : MonoBehaviour {
     {
         if(obj.gameObject.tag == "Barrier")//Object has tag Barrier
         {
+            if(isLeft == true)
+            {
+                WaveManager.isLeft = false;//This car exploded on the left side of the road
+            }//End of if
+            else if(isLeft == false)
+            {
+                WaveManager.isRight = false;//Car on the right side of the road will explode
+            }
             Destroy(this.gameObject);//Destroy object
         }//End of if
 

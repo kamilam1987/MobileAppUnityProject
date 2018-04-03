@@ -333,10 +333,10 @@
     <Compile Include="Assets\Scripts\CarDurabilityManager.cs" />
     <Compile Include="Assets\Scripts\CarMovement.cs" />
     <Compile Include="Assets\Scripts\CivilCarBehaviour.cs" />
-    <Compile Include="Assets\Scripts\CivilCarSpawner.cs" />
     <Compile Include="Assets\Scripts\PoliceCarBehaviour.cs" />
     <Compile Include="Assets\Scripts\RoadInfiniteScrolling.cs" />
     <Compile Include="Assets\Scripts\Shield.cs" />
+    <Compile Include="Assets\Scripts\WaveManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
