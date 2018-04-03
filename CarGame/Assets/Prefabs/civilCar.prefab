@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   civilCarSpeed: 5
+  direction: -1
+  crashDamage: 20
 --- !u!212 &212405375892733106
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -166,7 +168,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 520d406f7d8f8dc46bc189cf38dd4c84, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

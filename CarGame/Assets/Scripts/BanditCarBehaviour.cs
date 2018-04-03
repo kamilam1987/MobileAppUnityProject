@@ -31,13 +31,13 @@ public class BanditCarBehaviour : MonoBehaviour {
         }//End of if
          else
         {
-            if (gameObject.transform.position.y > 2.65f)
+            if (gameObject.transform.position.y > 2.65f && bombAmount > 0)
             {
                 this.gameObject.transform.Translate(new Vector3(0, -1, 0) * banditCarVarticalSpeed * Time.deltaTime);//Speed of driving in and out
             }//End of if
             else if (bombAmount <= 0) {//No more bombs
                 this.gameObject.transform.Translate(new Vector3(0, 1, 0) * banditCarVarticalSpeed * Time.deltaTime);//Bandits car disappear 
-                if (gameObject.transform.position.y > 7.48f) {//If on the position
+                if (gameObject.transform.position.y > 8.26f) {//If on the position
                     Destroy(this.gameObject);
                 }//End of if
             }//End of else if
@@ -48,15 +48,19 @@ public class BanditCarBehaviour : MonoBehaviour {
 
                 //Check if delay accept to drop a bomb
                 Delay -= Time.deltaTime;
-                if (Delay <= 0 && bombAmount > 0) //If delay 0 or and any bombs left
+                if (Delay <= 0 && bombAmount > 5) //If delay 0 or and 5 bombs left
                 {
                     Delay = bombDelay; //Assignrd bomb delay
                     bombAmount--;
                     Instantiate(bomb, transform.position, Quaternion.identity);//Drops bomb
                 }//End of if
+                else if(Delay <= 0 && bombAmount <= 5 && bombAmount > 0)
+                {
+                    Delay = bombDelay / 2; //Assignrd bomb delay twice faster
+                    bombAmount--;
+                    Instantiate(bomb, transform.position, Quaternion.identity);//Drops bomb
+                }//End of else if
             }
         }//End of else
     }//End of Update method
-
-
 }//End of BanditCarBehaviour class
