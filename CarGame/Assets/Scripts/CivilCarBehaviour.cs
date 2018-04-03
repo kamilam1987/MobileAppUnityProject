@@ -16,6 +16,7 @@ public class CivilCarBehaviour : MonoBehaviour {
     public int pointsPerCar; 
     private Vector3 civilCarPosition;//Position of the civil car
 
+    public GameObject expolsion;//Explosion object
     //Update is called once per frame
     private void Update()
     {
@@ -38,6 +39,7 @@ public class CivilCarBehaviour : MonoBehaviour {
             PointsManager.points -= pointsPerCar;//Substract points if player crashed with civil car 
             obj.gameObject.GetComponent<CarMovement>().durability -= crashDamage;//Substract from durability a cras damage
             Debug.Log("Collision with player");//Prints comments
+            Instantiate(expolsion, gameObject.transform.position, Quaternion.identity);//Explosion when hits a civil car
             Destroy(this.gameObject);
         }//End of if
         else if (obj.gameObject.tag == "EndOfTheRoad")//If game object has a tag called "EndOfTheRoad"

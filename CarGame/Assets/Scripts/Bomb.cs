@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour {
     public float bombSpeed;//Value of a bomb speed
     [HideInInspector]
     public int pointsPerBomb;//Amount points for bomb
-
+    public GameObject expolsion;//Explosion object
     void Update()
     {
         this.gameObject.transform.Translate(new Vector3(0, -1, 0) * bombSpeed * Time.deltaTime);//Object will fall down
@@ -23,11 +23,13 @@ public class Bomb : MonoBehaviour {
         if(obj.gameObject.tag == "Player")//If tag of that object is player
         {
             PointsManager.points -= pointsPerBomb;//Substract points when player crashes with a bombs
+            Instantiate(expolsion, gameObject.transform.position, Quaternion.identity);//Explosion when hits the bomb at the bomb exact position
             obj.gameObject.GetComponent<CarMovement>().durability -= bombDamage;//From car durability substract damage made from bomb
             Destroy(this.gameObject);//Destroy bomb
         }//End of if 
         else if(obj.gameObject.tag == "Shield")//Have a tag shield
         {
+            Instantiate(expolsion, gameObject.transform.position, Quaternion.identity);//Explosion when hits the shield bonus
             Destroy(this.gameObject);//Destroy bomb
         }//End of else if
         else if(obj.gameObject.tag == "EndOfTheRoad")//If tag is EndOfTheRoad

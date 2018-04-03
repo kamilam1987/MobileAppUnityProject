@@ -154,6 +154,8 @@ MonoBehaviour:
   civilCarSpeed: 5
   direction: -1
   crashDamage: 20
+  pointsPerCar: 0
+  expolsion: {fileID: 1499250998255774, guid: 6bb717ad3a57fb64b80a0456f3b3d180, type: 2}
 --- !u!212 &212405375892733106
 SpriteRenderer:
   m_ObjectHideFlags: 1

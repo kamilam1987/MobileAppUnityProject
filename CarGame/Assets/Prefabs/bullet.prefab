@@ -102,6 +102,7 @@ MonoBehaviour:
   bulletDamage: 2
   direction: 0
   bulletSpeed: 15
+  explosion: {fileID: 1499250998255774, guid: 6bb717ad3a57fb64b80a0456f3b3d180, type: 2}
 --- !u!212 &212411999708344008
 SpriteRenderer:
   m_ObjectHideFlags: 1

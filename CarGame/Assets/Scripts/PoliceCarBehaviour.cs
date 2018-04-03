@@ -23,7 +23,8 @@ public class PoliceCarBehaviour : MonoBehaviour {
     private Vector3 policeCarPos;//Police car position
     private float shootDelay;//Time for shooting
     private GameObject bulletObj;//Bullet object
-    private float lightShowDelay; 
+    private float lightShowDelay;
+    public GameObject explosion;//Explosion object
 
     void Start()
     {
@@ -95,7 +96,8 @@ public class PoliceCarBehaviour : MonoBehaviour {
             {
                 WaveManager.isRight = false;//Car on the right side of the road will explode
             }
-            PointsManager.points += pointsPerCar;//Adding poits for police car
+            PointsManager.points += pointsPerCar;//Adding poits for police car 
+            Instantiate(explosion, gameObject.transform.position, Quaternion.identity);//Explosion when hits a police car
             Destroy(this.gameObject);//Destroy object
         }//End of if
 

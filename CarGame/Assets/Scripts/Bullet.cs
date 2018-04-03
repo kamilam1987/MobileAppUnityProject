@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour {
     [HideInInspector]
     public int direction;//Direction of a bullet
     public float bulletSpeed;//Speed of a bullet
+    public GameObject explosion;//Explosion object
 
     //Update method callculates how the bullet is moving
     void Update()
@@ -25,6 +26,8 @@ public class Bullet : MonoBehaviour {
         if(obj.gameObject.tag == "Player")//If game object is player car
         {
             obj.gameObject.GetComponent<CarMovement>().durability -= bulletDamage;//Substract bullet damage from player car durabilty
+            GameObject spawnedExplosion =(GameObject)Instantiate(explosion, gameObject.transform.position, Quaternion.identity);//Explosion when car was hit by bullet
+            spawnedExplosion.transform.localScale = new Vector3(0.2f, 0.2f, 1f);//Explosion will be smallerthen others explosions
             Destroy(this.gameObject);//Destroy bullet object
         }//End of if   
         else if(obj.gameObject.tag =="Shield" || obj.gameObject.tag == "Barrier" || obj.gameObject.tag == "PoliceCar")//If player has a shield bonus, tag barrier or tag policeCar

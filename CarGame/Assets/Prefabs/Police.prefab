@@ -240,6 +240,8 @@ MonoBehaviour:
   isLeft: 1
   policeCarVerticalSpeed: 4
   bulletsInSeries: 3
+  pointsPerCar: 0
+  explosion: {fileID: 1499250998255774, guid: 6bb717ad3a57fb64b80a0456f3b3d180, type: 2}
 --- !u!212 &212433469666697568
 SpriteRenderer:
   m_ObjectHideFlags: 1
