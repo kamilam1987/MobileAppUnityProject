@@ -47,7 +47,7 @@ public class BanditCarBehaviour : MonoBehaviour {
             }//End of else if
             else
             {
-                banditCarPos = Vector3.Lerp(transform.position, playerCar.transform.position, Time.fixedDeltaTime * banditCarHorizontalSpeed);//Follows the player car
+                banditCarPos = Vector3.Lerp(transform.position, playerCar.transform.position, Time.deltaTime * banditCarHorizontalSpeed);//Follows the player car
                 transform.position = new Vector3(banditCarPos.x, transform.position.y, 0);//How fast will be moving
 
                 //Check if delay accept to drop a bomb
