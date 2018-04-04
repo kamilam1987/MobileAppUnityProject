@@ -82,7 +82,7 @@ public class WaveManager : MonoBehaviour {
     //This method checks on which side of the road is player car and police car will be created on opposite road side
     void spawnPoliceCar()
     {
-        if(GameObject.FindWithTag("Player").gameObject.transform.position.x <= -0.93f && isRight == false)//Player car on the left side of the road and no police ar on the right side of the road
+        if(GameObject.FindWithTag("Player").gameObject.transform.position.x <= -0.93f && isRight == false )//Player car on the left side of the road and no police ar on the right side of the road
         {
             spawnedPoliceCar = (GameObject)Instantiate(policeCar, new Vector3(5.03f, -7.48f, 0), Quaternion.identity);
             spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().isLeft = false;

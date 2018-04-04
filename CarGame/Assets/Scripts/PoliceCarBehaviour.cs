@@ -25,11 +25,14 @@ public class PoliceCarBehaviour : MonoBehaviour {
     private GameObject bulletObj;//Bullet object
     private float lightShowDelay;
     public GameObject explosion;//Explosion object
+    public AudioClip shotSound;//Sound for shooting
+    private AudioSource audio;//Component audio source
 
     void Start()
     {
         lightShowDelay = 2 * lightDelay;
         shootDelay = shootingSeriesDelay;//Assigned series delay to shoot delay
+        audio = gameObject.GetComponent<AudioSource>();//Assigned audio source component to audio
     }//End of Start method
 
     //Upsdate method calculate where to stop police car
@@ -65,11 +68,14 @@ public class PoliceCarBehaviour : MonoBehaviour {
             }//End of if
         }//End of else
     }//End of Update method
+
+    //All shootings happens in this method
     IEnumerator Shoot()
     {
         //Amount of bullets series
         for(int i = bulletsInSeries; i>0; i-- )
         {
+            audio.PlayOneShot(shotSound, 0.55f);//Play only once(what sound and value of the sound)
             bulletObj = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);//Assigned a new bullet object in the same pleace where is a police car
             //Direction of a bullet
             if(isLeft == true)//Police car is on the left side of the road

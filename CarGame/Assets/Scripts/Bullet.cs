@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour {
         {
             obj.gameObject.GetComponent<CarMovement>().durability -= bulletDamage;//Substract bullet damage from player car durabilty
             GameObject spawnedExplosion =(GameObject)Instantiate(explosion, gameObject.transform.position, Quaternion.identity);//Explosion when car was hit by bullet
+            spawnedExplosion.GetComponent<AudioSource>().enabled = false;//Won't play sound when players gets shoot from a police car
             spawnedExplosion.transform.localScale = new Vector3(0.2f, 0.2f, 1f);//Explosion will be smallerthen others explosions
             Destroy(this.gameObject);//Destroy bullet object
         }//End of if   
