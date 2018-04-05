@@ -9,12 +9,16 @@ public class CarDurabilityManager : MonoBehaviour {
     //Declare variables
     public GameObject playerCarPrefab;//Object of a playerCarPrefab
     public GameObject spawnPoint;//Pleace when spawn the object once is destroyed
-    public TMPro.TextMeshPro durabilityText;
+    public TextMesh durabilityText;
     public int lifes;//The amount of lifes that a car has
     private GameObject playerCar;//Private objec of a car
+    [HideInInspector]
+    public int maxLifes;//Amount of max player lifes at the start
+    public GameObject EndGameScreen;//End of the game panel 
 
     private void Start()
     {
+        maxLifes = lifes;//Assignes lifes to max lifes
         playerCar = (GameObject)Instantiate(playerCarPrefab, spawnPoint.transform.position, Quaternion.identity);//Creates a car
 
     }//End of Start method
@@ -30,6 +34,11 @@ public class CarDurabilityManager : MonoBehaviour {
             {
                 //StartCoroutine function always returns immediately, however you can yield the result. This will wait until the coroutine has finished execution. There is no guarantee that coroutines end in the same order that they were started, even if they finish in the same frame.
                 StartCoroutine("SpawnaCar");
+            }
+            else if (lifes <=0)//No more lifes
+            {
+                Time.timeScale = 0;//Stops game
+                EndGameScreen.SetActive(true);//Activate this panel
             }
         }//End of if
         else if (playerCar.GetComponent<CarMovement>().durability > playerCar.GetComponent<CarMovement>().maxDurability)

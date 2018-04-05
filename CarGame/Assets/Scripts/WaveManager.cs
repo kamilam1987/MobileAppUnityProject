@@ -43,6 +43,8 @@ public class WaveManager : MonoBehaviour {
     private float[] laneArray;//Lanes on the road
     private float spawnDelay;//Spawn delay
 
+    public GameObject EndGameScreen;//Screen with points
+
     //Once the game starts
     void Start()
     {
@@ -76,6 +78,11 @@ public class WaveManager : MonoBehaviour {
         else if (civilCarAmount <= 0 && policeCarAmount > 0 && spawnedBanditCar == null)//Checks if any civil car exist and any police car for spawning and no bandits car left
         {
             spawnPoliceCar();//Runs spawnedPoliceCar method
+        }//End of else if
+        else if(policeCarAmount <=0 && isLeft == false && isRight ==false)
+        {
+            Time.timeScale = 0;
+            EndGameScreen.SetActive(true);
         }//End of else if
     }//End of Update method
 
