@@ -13,6 +13,8 @@ public class MenuFunctionality : MonoBehaviour {
     public Light blueLight;//Police car blue light
     public float lightDeley;//Deley value
     private float delay;//Deley
+    public GameObject highScores;//High score object
+    public GameObject menuButtons;
 
     void Start()
     {
@@ -48,7 +50,8 @@ public class MenuFunctionality : MonoBehaviour {
     //Functions for menu high score button 
     public void HighScoreButton()
     {
-        //SceneManager.LoadScene(2);
+        menuButtons.SetActive(false);//Turns off Menu
+        highScores.SetActive(true);//Turns on the high score panel
     }//End of HighScoreButton method
 
     //Functions for menu options button
@@ -60,5 +63,10 @@ public class MenuFunctionality : MonoBehaviour {
     public void ExitButton() {
         Application.Quit();//Exit application
     }//End of ExitButton method
+
+    public void BackToMenuButton() {
+        highScores.SetActive(false);//Turns off Highs score panel
+        menuButtons.SetActive(true);//Turns on the menu panel
+    }//End of BackToMenuButton method
 
 }//End of MenuFunctionality class

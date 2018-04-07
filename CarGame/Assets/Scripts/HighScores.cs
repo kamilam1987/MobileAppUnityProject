@@ -23,7 +23,7 @@ public class HighScores : MonoBehaviour {
             highScoreText.text = "";//Assignes empty string
             for (int i = 0; highScoreArray[i] != 0; i ++)//If there is any score
             {
-                highScoreText.text += (i + 1) + ". " + highScoreArray[i] + "points" + System.Environment.NewLine;//Display high score in a new line, starts from 1
+                highScoreText.text += (i + 1) + ". " + highScoreArray[i] + " points" + System.Environment.NewLine;//Display high score in a new line, starts from 1
             }//End of for lool
         }//End of else
     }//End of Start method

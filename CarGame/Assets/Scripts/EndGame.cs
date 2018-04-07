@@ -57,6 +57,8 @@ public class EndGame : MonoBehaviour {
             }//End of for loop
 
         }//End of if
+
+        PlayerPrefsX.SetIntArray("HighScoreArray", highScoresArray);//Adds result to the high score array
     }//End of start method
 
     //On Play again button
