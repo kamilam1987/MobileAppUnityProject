@@ -19,7 +19,16 @@ public class MenuFunctionality : MonoBehaviour {
         delay = lightDeley;//Assigned light deley to delay
         redLight.enabled = true;
         blueLight.enabled = false;
+
+        if (PlayerPrefsX.GetIntArray("HighScoreArray", 0, 10)[0] == 0) //takes 3 arguments(name, the default values has to assigned if it's not in the system and the default size of array), if the first element is 0 crate this array
+        {
+            int[] hightScoresinitializationArray = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };//Array that keeps 10 of highest scores(sets them all to 0 at the start)
+                                                                                                //Assigned a whole array of int numbers
+            PlayerPrefsX.SetIntArray("HighScoreArray", hightScoresinitializationArray);//Takes two arguments(name and array)
+        }//End of if
     }//End of Start method
+
+   
 
     void Update()
     {

@@ -19,8 +19,11 @@ public class EndGame : MonoBehaviour {
     private GameObject GameManager;//Game object for game manager
     private GameObject PlayerCar;//Game object for plyer car
 
+    private int score;//Score value
+    private int[] highScoresArray = new int[10];//Array with the 10 highest scores
     void Start()
     {
+        highScoresArray = PlayerPrefsX.GetIntArray("HighScoreArray");//Crates high score array
         GameSummaryText.text = PointsManager.points.ToString();
         GameManager = GameObject.Find("GameManager");
         LifeBonusText.text = (GameManager.GetComponent<CarDurabilityManager>().lifes * everyExtraLifeBonus).ToString();
@@ -33,8 +36,27 @@ public class EndGame : MonoBehaviour {
             }//End of if
         }//End of if
 
-        //Calculate totals points
+        //Calculate totals points as a text
         totalPointsText.text = (int.Parse(GameSummaryText.text) + int.Parse(LifeBonusText.text) + int.Parse(cleanRideBonusText.text)).ToString();
+        //Parses points to int
+        score = int.Parse(totalPointsText.text);
+        //Checks if the score is higher then the last element in the array
+        if(score > highScoresArray[9])
+        {
+            for (int i = 0; i < 10; i++)//Loops the array to add a high score
+            {
+                if (score > highScoresArray[i])//Check if score is higher then the pleace in array that is in
+                {
+                    for (int j = 9; j > i; j--)//Scores go down by one in the array
+                    {
+                        highScoresArray[j] = highScoresArray[j - 1];
+                    }//End of for
+                    highScoresArray[i] = score;//Found the pleace in the array
+                    break;//Found the pleace so it won't look for more
+                }//End of if
+            }//End of for loop
+
+        }//End of if
     }//End of start method
 
     //On Play again button
