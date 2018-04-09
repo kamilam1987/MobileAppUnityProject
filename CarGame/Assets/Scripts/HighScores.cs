@@ -24,6 +24,10 @@ public class HighScores : MonoBehaviour {
             for (int i = 0; highScoreArray[i] != 0; i ++)//If there is any score
             {
                 highScoreText.text += (i + 1) + ". " + highScoreArray[i] + " points" + System.Environment.NewLine;//Display high score in a new line, starts from 1
+                if(i == 9)
+                {
+                    break;
+                }//End of if
             }//End of for lool
         }//End of else
     }//End of Start method

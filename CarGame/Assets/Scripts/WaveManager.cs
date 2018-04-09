@@ -89,14 +89,31 @@ public class WaveManager : MonoBehaviour {
     //This method checks on which side of the road is player car and police car will be created on opposite road side
     void spawnPoliceCar()
     {
-        if(GameObject.FindWithTag("Player").gameObject.transform.position.x <= -0.93f && isRight == false )//Player car on the left side of the road and no police ar on the right side of the road
+        Transform playerCarPosition;
+        //Checks for each tags
+        if(GameObject.FindWithTag("Player"))//If player has a tag player
+        {
+            playerCarPosition = GameObject.FindWithTag("Player").transform;
+        }//End of if
+        else if(GameObject.FindWithTag("Shield"))//If palyer has tag shields
+        {
+            playerCarPosition = GameObject.FindWithTag("Shield").transform;
+        }//End of else if
+        else if(GameObject.FindWithTag("Untouchable")) {
+            playerCarPosition = GameObject.FindWithTag("Untouchable").transform;
+        }//End of else if
+        else
+        {
+            playerCarPosition = null;
+        }//End of else
+        if (playerCarPosition.position.x <= -0.93f && isRight == false )//Player car on the left side of the road and no police ar on the right side of the road
         {
             spawnedPoliceCar = (GameObject)Instantiate(policeCar, new Vector3(5.03f, -7.48f, 0), Quaternion.identity);
             spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().isLeft = false;
             isRight = true;
             policeCarAmount--;//Decrease police cas by one
         }//End of if
-        else if (GameObject.FindWithTag("Player").gameObject.transform.position.x > -0.93f && isLeft == false)//Player car on the right side of the road and no police ar on the left side of the road
+        else if (playerCarPosition.position.x > -0.93f && isLeft == false)//Player car on the right side of the road and no police ar on the left side of the road
         {
             spawnedPoliceCar = (GameObject)Instantiate(policeCar, new Vector3(-5.03f, -7.48f, 0), Quaternion.identity);
             spawnedPoliceCar.GetComponent<PoliceCarBehaviour>().isLeft = true;
