@@ -35,6 +35,7 @@ public class BanditCarBehaviour : MonoBehaviour {
         else
         {
             banditCarPos = Vector3.Lerp(transform.position, playerCar.transform.position, Time.deltaTime * banditCarHorizontalSpeed);//Follows the player car
+            Mathf.Clamp(banditCarPos.x, -5.2f, 5.2f);//Mathf.clamp keeps min and max value, keeps in road boundry 
             transform.position = new Vector3(banditCarPos.x, transform.position.y, 0);//How fast will be moving
         }
 
@@ -42,7 +43,7 @@ public class BanditCarBehaviour : MonoBehaviour {
 
     void Update()
     {
-       if (gameObject.transform.position.y > 2.65f && bombAmount > 0)
+       if (gameObject.transform.position.y > 3.8f && bombAmount > 0)
             {
                 this.gameObject.transform.Translate(new Vector3(0, -1, 0) * banditCarVarticalSpeed * Time.deltaTime);//Speed of driving in and out
             }//End of if

@@ -70,7 +70,7 @@ public class WaveManager : MonoBehaviour {
             if(isSpawned == false) { //Checks if first bandit car wasn't spawn
                 spawnBanditCar();//Run spawnBanditCar method
             }//End of if
-            else if(isSpawned == true && spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombAmount < 5 && isSecondSpawn == false)//If bomb amount is less then 5 creates second bandit car)
+            else if(isSpawned == true && spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombAmount < 10 && isSecondSpawn == false)//If bomb amount is less then 5 creates second bandit car)
             { 
                 spawnBanditCar();//Run spawnBanditCar method
             }
@@ -132,7 +132,8 @@ public class WaveManager : MonoBehaviour {
         if (isSpawned == false) //If didn't create oneof the bandit car 
         {
            spawnedBanditCar = (GameObject)Instantiate(banditCar, new Vector3(Random.Range(-5.02f, 5.02f), 7.66f, 0), Quaternion.identity);//Creates bandit car object with random position and default rotation
-           isSpawned = true;
+            spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombDelay = bombDelay; 
+            isSpawned = true;
         }//End of if
         else if (isSpawned == true && isSecondSpawn == false)
         {
@@ -146,11 +147,11 @@ public class WaveManager : MonoBehaviour {
                 spawnedBanditCar = (GameObject)Instantiate(banditCar, new Vector3(-4.92f, 7.66f, 0), Quaternion.identity);//Creates bandit car object with random position and default rotation
                 isSecondSpawn = true;
             }//End of else if
+            spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombDelay = bombDelay /1.5f;
         }//End of if
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombAmount = bombAmount;//Assigned to WaveManager script from Banditcarbehaviour script
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().banditCarVarticalSpeed = banditCarVarticalSpeed;
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().banditCarHorizontalSpeed = banditCarHorizontalSpeed;
-        spawnedBanditCar.GetComponent<BanditCarBehaviour>().bombDelay = bombDelay;
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().pointsPerCar = pointsPerPoliceCar;
         spawnedBanditCar.GetComponent<BanditCarBehaviour>().bomb.GetComponent<Bomb>().pointsPerBomb = pointsPerBomb;
         

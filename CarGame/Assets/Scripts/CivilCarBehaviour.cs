@@ -32,7 +32,7 @@ public class CivilCarBehaviour : MonoBehaviour {
         }
     }//End of OnCollisionEnter2D method
 
-    private void OnTriggerEnter2D(Collider2D obj)
+    void OnTriggerEnter2D(Collider2D obj)
     {
         if(obj.gameObject.tag == "Player")//Checks if PlayerCar tag is Player
         {
@@ -42,6 +42,11 @@ public class CivilCarBehaviour : MonoBehaviour {
             Instantiate(expolsion, gameObject.transform.position, Quaternion.identity);//Explosion when hits a civil car
             Destroy(this.gameObject);
         }//End of if
+        else if(obj.gameObject.tag == "Shield")
+        {
+            Instantiate(expolsion, gameObject.transform.position, Quaternion.identity);//Explosion when hits a civil car
+            Destroy(this.gameObject);
+        }//End of else if
         else if (obj.gameObject.tag == "EndOfTheRoad")//If game object has a tag called "EndOfTheRoad"
         {
             PointsManager.points += pointsPerCar;//Adding points per car to a main points in points manager
