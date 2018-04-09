@@ -12,6 +12,7 @@ public class PointsManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        points = 0;//Sets points to 0
         this.gameObject.GetComponent<MeshRenderer>().sortingLayerName = "Points";//Display under a cars
         this.gameObject.GetComponent<TextMesh>().color = new Color(1f, 1f, 1f, 0.7f);//Adds transparency
     }

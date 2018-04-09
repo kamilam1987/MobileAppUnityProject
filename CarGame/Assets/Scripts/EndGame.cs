@@ -64,11 +64,13 @@ public class EndGame : MonoBehaviour {
     //On Play again button
     public void PlayAgainButton()
     {
+        Time.timeScale = 1;//Starts time
         SceneManager.LoadScene(1);
     }//End of PlayAgainButton method
 
     //On back to menu button
     public void BackToMenuButton() {
+        Time.timeScale = 1;//Starts time
         SceneManager.LoadScene(0);
     }//End of BackToMenuButton method
 }//End of EndGame class

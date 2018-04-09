@@ -48,6 +48,7 @@ public class Pause : MonoBehaviour {
 
     //On Exit button
     public void ExitButton() {
+        Time.timeScale = 1;//Starts time
         Application.Quit();//Exit game
     }//End of ExitButton method
 }//End of Pause class

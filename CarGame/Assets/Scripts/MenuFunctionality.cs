@@ -44,6 +44,7 @@ public class MenuFunctionality : MonoBehaviour {
 
     //Functions for menu start button
     public void StartButton() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);//Loads scene with id 0
     }//End of StartButton method
 
