@@ -51,3 +51,6 @@ TagManager:
   - name: Logo
     uniqueID: 461564479
     locked: 0
+  - name: Durability
+    uniqueID: 3674781583
+    locked: 0
