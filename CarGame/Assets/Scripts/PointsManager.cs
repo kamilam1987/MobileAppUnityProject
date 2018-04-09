@@ -28,6 +28,11 @@ public class PointsManager : MonoBehaviour {
             points += 1;//Adds points every 1 sec
             secondDelay = 1;//Assigned value of 1
         }//End of if
+        //Points won't go below 0
+        if(points < 0)
+        {
+            points = 0;
+        }//End of if
 
     }//End of Update method
 
