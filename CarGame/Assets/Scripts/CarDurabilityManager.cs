@@ -10,11 +10,13 @@ public class CarDurabilityManager : MonoBehaviour {
     public GameObject playerCarPrefab;//Object of a playerCarPrefab
     public GameObject spawnPoint;//Pleace when spawn the object once is destroyed
     public TextMesh durabilityText;
+    public GameObject[] lifesIcons;////Array of life icons
     public int lifes;//The amount of lifes that a car has
     private GameObject playerCar;//Private objec of a car
     [HideInInspector]
     public int maxLifes;//Amount of max player lifes at the start
     public GameObject EndGameScreen;//End of the game panel 
+   
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class CarDurabilityManager : MonoBehaviour {
         {
             Destroy(playerCar);//Destroy a car object
             lifes--;//Substract one of the lifes
+            Destroy(lifesIcons[lifes]);//Destroy life
             if (lifes > 0)//Checks if any lifes left
             {
                 //StartCoroutine function always returns immediately, however you can yield the result. This will wait until the coroutine has finished execution. There is no guarantee that coroutines end in the same order that they were started, even if they finish in the same frame.
