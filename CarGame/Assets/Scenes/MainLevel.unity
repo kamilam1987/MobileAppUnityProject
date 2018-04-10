@@ -2790,16 +2790,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806e550dad4c5504eae9518ac53f2b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  civilCarSpawnDeley: 2
+  civilCarSpawnDeley: 1
   civilCar: {fileID: 1063594586883522, guid: 371c5c10fe6c13c4f8504dc86b44817e, type: 2}
-  civilCarAmount: 4
+  civilCarAmount: 15
   banditCar: {fileID: 1479203891064396, guid: 29930cc9464358441bfab8d365083e53, type: 2}
   bombAmount: 7
   banditCarVarticalSpeed: 5
   banditCarHorizontalSpeed: 2
-  bombDelay: 1
+  bombDelay: 1.5
   policeCar: {fileID: 1437849723388498, guid: 3a2d58b4cb31b714aa8e14d5e972d035, type: 2}
-  policeCarAmount: 5
+  policeCarAmount: 1
   shootingSeriesDelay: 1.15
   singleShotDelay: 0.25
   policeCarVerticalSpeed: 5

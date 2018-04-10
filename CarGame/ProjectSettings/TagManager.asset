@@ -8,6 +8,7 @@ TagManager:
   - Untouchable
   - Shield
   - Barrier
+  - PoliceCar
   layers:
   - Default
   - TransparentFX
@@ -42,14 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Points
-    uniqueID: 2664019555
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Logo
     uniqueID: 461564479
+    locked: 0
+  - name: Points
+    uniqueID: 2664019555
     locked: 0
   - name: Durability
     uniqueID: 3674781583

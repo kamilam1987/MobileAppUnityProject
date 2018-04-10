@@ -15,6 +15,7 @@ public class MenuFunctionality : MonoBehaviour {
     private float delay;//Deley
     public GameObject highScores;//High score object
     public GameObject menuButtons;
+    public GameObject info;
 
     void Start()
     {
@@ -56,8 +57,9 @@ public class MenuFunctionality : MonoBehaviour {
     }//End of HighScoreButton method
 
     //Functions for menu options button
-    public void OptionsButton() {
-        //SceneManager.LoadScene(3);
+    public void InfoButton() {
+        info.SetActive(true);//Turns off info panel
+        menuButtons.SetActive(false);//Turns on the menu panel
     }//End of OptionsButton method
 
     //Functions for menu exit button
@@ -70,4 +72,9 @@ public class MenuFunctionality : MonoBehaviour {
         menuButtons.SetActive(true);//Turns on the menu panel
     }//End of BackToMenuButton method
 
+    public void InfoBackToMenuButton()
+    {
+        info.SetActive(false);//Turns off info panel
+        menuButtons.SetActive(true);//Turns on the menu panel
+    }//End of BackToMenuButton method
 }//End of MenuFunctionality class

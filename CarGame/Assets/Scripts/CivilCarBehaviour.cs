@@ -17,6 +17,7 @@ public class CivilCarBehaviour : MonoBehaviour {
     private Vector3 civilCarPosition;//Position of the civil car
 
     public GameObject expolsion;//Explosion object
+
     //Update is called once per frame
     private void Update()
     {
